@@ -24,16 +24,38 @@ $result_generos = mysqli_query($conexao, "SELECT * FROM generos ORDER BY nome_ge
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background-color: #007bff; color: white; }
         tr:nth-child(even) { background-color: #f2f2f2; }
+        .btn-logout {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-logout:hover {
+            background-color: #c82333;
+        }
+
+        .btn-logout:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body>
 
-    <nav>
+    <nav style="display: flex; justify-content: space-between; align-items: center; background: #e9ecef; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px;">
         <strong>Painel Bibliotecária:</strong>
         <a href="bibliotecaria_generos.php">Gêneros</a> |
         <a href="bibliotecaria_livros.php">Livros / Estoque</a> |
         <a href="bibliotecaria_clientes.php">Clientes</a> |
         <a href="bibliotecaria_emprestimos.php">Empréstimos</a>
+        <form action="logout.php" method="POST" style="margin: 0;">
+            <button type="submit" name="btn_logout" class="btn-logout">Sair</button>
+        </form>
     </nav>
 
     <div class="card">
